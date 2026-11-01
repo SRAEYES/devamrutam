@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#F5EBD9"/>
+  <circle cx="200" cy="200" r="80" fill="#E7DFD0"/>
+  <text x="200" y="215" font-family="serif" font-size="48" font-weight="bold" fill="#173D32" text-anchor="middle">CS</text>
+  <text x="200" y="330" font-family="serif" font-size="22" font-weight="bold" fill="#173D32" text-anchor="middle">Chakka Sraeyes</text>
+  <text x="200" y="360" font-family="sans-serif" font-size="13" fill="#B68A42" text-anchor="middle">Founder, DEVAMRUTAM</text>
+  <text x="200" y="420" font-family="sans-serif" font-size="11" fill="#77756D" text-anchor="middle">Replace with official founder photograph</text>
+</svg>

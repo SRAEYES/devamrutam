@@ -1,26 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-forest-green: #173D32;
+  --color-deep-forest: #102D25;
+  --color-antique-gold: #B68A42;
+  --color-soft-gold: #D8BC83;
+  --color-warm-ivory: #F5EBD9;
+  --color-bg-cream: #FAF8F2;
+  --color-pure-white: #FFFFFF;
+  --color-temple-maroon: #722D32;
+  --color-body-text: #373A35;
+  --color-muted-text: #77756D;
+  --color-border: #E7DFD0;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-forest-green: var(--color-forest-green);
+  --color-deep-forest: var(--color-deep-forest);
+  --color-antique-gold: var(--color-antique-gold);
+  --color-soft-gold: var(--color-soft-gold);
+  --color-warm-ivory: var(--color-warm-ivory);
+  --color-bg-cream: var(--color-bg-cream);
+  --color-temple-maroon: var(--color-temple-maroon);
+  --color-body-text: var(--color-body-text);
+  --color-muted-text: var(--color-muted-text);
+  --color-border: var(--color-border);
+  --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+  --font-inter: 'Inter', system-ui, sans-serif;
+  --font-devanagari: 'Noto Serif Devanagari', serif;
+  --font-telugu: 'Noto Sans Telugu', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg-cream);
+  color: var(--color-body-text);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-cormorant {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-inter {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.font-devanagari {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+
+.font-telugu {
+  font-family: 'Noto Sans Telugu', sans-serif;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-antique-gold);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-warm-ivory);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-antique-gold);
+  border-radius: 3px;
+}
+
+/* Selection styling */
+::selection {
+  background-color: #D8BC8344;
+  color: var(--color-forest-green);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Gold divider ornament */
+.gold-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-antique-gold);
+}
+
+.gold-divider::before,
+.gold-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-antique-gold), transparent);
+}
+
+/* Section spacing */
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* Container */
+.container-custom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-custom {
+    padding: 0 2rem;
+  }
+}
+
+/* Brand wordmark */
+.brand-wordmark {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* Card hover */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(23, 61, 50, 0.12);
+}
+
+/* Button base */
+.btn-primary {
+  background-color: var(--color-forest-green);
+  color: white;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 500;
+  padding: 0.75rem 1.75rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-deep-forest);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-forest-green);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 500;
+  padding: 0.75rem 1.75rem;
+  border-radius: 4px;
+  border: 1.5px solid var(--color-forest-green);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-forest-green);
+  color: white;
+}
+
+/* Gold badge */
+.gold-badge {
+  background-color: var(--color-antique-gold);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Coming soon badge */
+.badge-coming-soon {
+  background-color: var(--color-warm-ivory);
+  color: var(--color-muted-text);
+  border: 1px solid var(--color-border);
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Enquiry badge */
+.badge-enquiry {
+  background-color: #EBF4F0;
+  color: var(--color-forest-green);
+  border: 1px solid #B8D5C9;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Sanskrit ornament character */
+.ornament-char {
+  color: var(--color-antique-gold);
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 1.2rem;
+  opacity: 0.7;
 }
