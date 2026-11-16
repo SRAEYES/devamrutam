@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450" role="img" aria-label="Bhakti Pack Advanced">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBF7EE"/>
+      <stop offset="100%" stop-color="#F2E6CE"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#bg)"/>
+  <rect x="20" y="20" width="560" height="410" rx="16" fill="none" stroke="#E7DFD0" stroke-width="2"/>
+  <g transform="translate(300 215)" fill="#B68A42" fill-opacity="0.08" stroke="#B68A42" stroke-width="2" stroke-linejoin="round"><path d="M0,0 Q16,-30 0,-66 Q-16,-30 0,0Z" transform="rotate(-60)"/><path d="M0,0 Q16,-30 0,-66 Q-16,-30 0,0Z" transform="rotate(-30)"/><path d="M0,0 Q16,-30 0,-66 Q-16,-30 0,0Z" transform="rotate(0)"/><path d="M0,0 Q16,-30 0,-66 Q-16,-30 0,0Z" transform="rotate(30)"/><path d="M0,0 Q16,-30 0,-66 Q-16,-30 0,0Z" transform="rotate(60)"/></g>
+  <text x="300" y="320" font-family="Georgia, serif" font-size="28" font-weight="bold" fill="#173D32" text-anchor="middle">Bhakti Pack Advanced</text>
+  <text x="300" y="360" font-family="Arial, sans-serif" font-size="12" letter-spacing="2" fill="#77756D" text-anchor="middle">DEVAMRUTAM BHĀṆḌĀRAM</text>
+</svg>

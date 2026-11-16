@@ -1,10 +1,11 @@
 import type { Product } from '@/types';
 
 // Product data — DEVAMRUTAM BHĀṆḌĀRAM
-// Status options: 'coming-soon' | 'available-on-enquiry' | 'out-of-stock'
-// 
-// IMPORTANT: Do not add price, materials or sourcing details until confirmed.
-// All products are currently 'coming-soon'. Update status when ready.
+// Updated with confirmed introductory prices:
+// Mini Pack (with Japa Mala): ₹199 + shipping
+// Advanced Pack: ₹249
+// Tulasi Japa Mala: ₹59
+// Japa Bag: ₹59
 
 export const products: Product[] = [
   // ── Bhakti Packs ──────────────────────────────────────
@@ -14,19 +15,21 @@ export const products: Product[] = [
     nameSanskrit: 'भक्तिपैक (लघु)',
     category: 'bhakti-packs',
     shortDescription:
-      'A beautiful starter pack for children beginning their devotional journey — everything a young devotee needs to start.',
+      'A beautiful devotional starter pack for children including a sacred Tulasi japa mala, cotton japa bag, chanting counter, and beginner shloka cards.',
     fullDescription:
-      'The Bhakti Pack Mini is DEVAMRUTAM\'s signature beginner pack. Thoughtfully curated with a young learner in mind, it contains essential items to begin a simple, joyful devotional practice.',
+      'The Bhakti Pack Mini is DEVAMRUTAM\'s signature introductory pack designed with warmth for young learners. It brings together all foundational devotional items — including an authentic Tulasi Japa Mala, cotton chanting bag, digital counter, and beautifully illustrated prayer cards — to begin a joyful and disciplined spiritual habit.',
     contents: [
-      'Small japa bag',
-      'Chanting counter',
-      'Beginner shloka cards',
-      'Small devotional booklet',
-      'Welcome card from DEVAMRUTAM',
+      'Sacred Tulasi Japa Mala (108 beads)',
+      'Traditional cotton japa bag',
+      'Digital chanting counter',
+      'Beginner Sanskrit shloka cards with meanings',
+      'Illustrated devotional guide booklet',
+      'Welcome blessing card from DEVAMRUTAM',
     ],
-    status: 'coming-soon',
+    price: '₹199 + shipping',
+    status: 'available-on-enquiry',
     images: ['/images/products/bhakti-pack-mini.jpg'],
-    tags: ['children', 'beginner', 'japa', 'gift'],
+    tags: ['children', 'beginner', 'japa', 'tulasi-mala', 'gift'],
   },
   {
     slug: 'bhakti-pack-advanced',
@@ -34,77 +37,101 @@ export const products: Product[] = [
     nameSanskrit: 'भक्तिपैक (उन्नत)',
     category: 'bhakti-packs',
     shortDescription:
-      'A comprehensive devotional kit for learners ready to deepen their practice — curated with care for a meaningful experience.',
+      'A comprehensive, premium devotional kit for young practitioners ready to deepen their chanting and daily scripture study.',
     fullDescription:
-      'The Bhakti Pack Advanced is designed for learners who are ready to go deeper into their devotional practice. It includes a full japa mala, guided chanting resources and a practice journal.',
+      'The Bhakti Pack Advanced is crafted for dedicated students and children advancing in their spiritual journey. Containing a premium Tulasi mala, embroidered japa bag, stotra recitation scripture, daily practice journal, and velvet keepsake pouch, it inspires a lifelong devotional discipline.',
     contents: [
-      'Japa bag',
-      'Tulasi japa mala',
-      'Chanting guide booklet',
-      'Stotra or shloka book',
-      'Devotional practice journal',
-      'Storage pouch',
+      'Premium Tulasi japa mala (108 beads)',
+      'Embroidered sacred japa bag with strap',
+      'Digital chanting tally counter',
+      'Selected Stotra and Shloka scripture book',
+      'Daily devotional practice journal',
+      'Protective velvet storage pouch',
     ],
-    status: 'coming-soon',
+    price: '₹249',
+    status: 'available-on-enquiry',
     images: ['/images/products/bhakti-pack-advanced.jpg'],
-    tags: ['advanced', 'japa', 'tulasi-mala', 'gift'],
+    tags: ['advanced', 'japa', 'tulasi-mala', 'gift', 'stotras'],
   },
 
   // ── Japa & Chanting Essentials ──────────────────────────────────────
   {
     slug: 'tulasi-japa-mala',
     name: 'Tulasi Japa Mala',
+    nameSanskrit: 'तुलसी जपमाला',
     category: 'japa-chanting',
-    shortDescription: 'A traditional Tulasi Japa Mala for daily chanting and japa practice.',
+    shortDescription: 'Sacred hand-strung Tulasi Japa Mala (108+1 beads) with traditional knotting for daily mantra recitation.',
     fullDescription:
-      'A genuine Tulasi Japa Mala for regular devotional use. Suitable for chanting the names of the divine, mantra repetition and daily practice.',
-    status: 'coming-soon',
+      'An authentic, reverently sourced Tulasi Japa Mala comprising 108 chanting beads plus the Meru bead. Suitable for children and adults to cultivate focus, peace of mind, and regular recitation discipline.',
+    contents: [
+      '108+1 genuine Tulasi wood beads',
+      'Traditional knotting between beads',
+      'Cotton tassel',
+    ],
+    price: '₹59',
+    status: 'available-on-enquiry',
     images: ['/images/products/tulasi-japa-mala.jpg'],
-    tags: ['japa', 'tulasi', 'mala', 'chanting'],
+    tags: ['japa', 'tulasi', 'mala', 'chanting', 'sacred'],
   },
   {
     slug: 'japa-bag',
-    name: 'Japa Bag',
+    name: 'Traditional Japa Bag',
+    nameSanskrit: 'जप झोली',
     category: 'japa-chanting',
-    shortDescription: 'A traditional cloth japa bag for your chanting practice.',
-    fullDescription: 'A simple, clean japa bag for daily chanting. Keeps your mala protected and convenient to use.',
-    status: 'coming-soon',
+    shortDescription: 'Clean, comfortable cotton chanting bag (Japa Jholi) designed to keep your sacred mala clean and protected.',
+    fullDescription:
+      'A breathable cotton japa bead bag with an index finger opening and comfortable hanging strap. Ideal for children to hold their mala with reverence while reciting shlokas and daily prayers.',
+    contents: [
+      'Durable pure cotton fabric',
+      'Bead opening and finger loop',
+      'Hanging neck/shoulder strap',
+    ],
+    price: '₹59',
+    status: 'available-on-enquiry',
     images: ['/images/products/japa-bag.jpg'],
-    tags: ['japa', 'bag', 'chanting'],
+    tags: ['japa', 'bag', 'chanting', 'accessories'],
   },
 
   // ── Spiritual Books ──────────────────────────────────────
   {
     slug: 'books',
     name: 'Spiritual Books Collection',
+    nameSanskrit: 'आध्यात्मिक ग्रन्थावली',
     category: 'spiritual-books',
-    shortDescription: 'Carefully selected spiritual books — Bhagavad Gita, shloka books, stotra collections and children\'s scripture books.',
+    shortDescription: 'Carefully curated spiritual books — Bhagavad Gita editions, shloka books, stotra collections and illustrated stories.',
     fullDescription:
-      'DEVAMRUTAM will curate a selection of quality spiritual books suitable for children and families — including Bhagavad Gita editions, shloka books, stotra collections and inspiring children\'s stories from scripture.',
+      'DEVAMRUTAM curates inspiring, child-friendly editions of timeless scriptures. From illustrated Bhagavatam tales to clear word-by-word Gita verse translations, these editions make sacred knowledge delightful to read.',
+    contents: [
+      'Children\'s illustrated Bhagavad Gita',
+      'Sanskrit Shloka pocket reciter',
+      'Bhagavatam bedtime stories',
+    ],
     status: 'coming-soon',
     images: ['/images/products/books.jpg'],
-    tags: ['books', 'gita', 'shlokas', 'children'],
+    tags: ['books', 'gita', 'shlokas', 'children', 'scriptures'],
   },
 
   // ── Puja & Festival Essentials ──────────────────────────────────────
   {
     slug: 'karthika-deepam-set',
     name: 'Karthika Deepam Collection',
+    nameSanskrit: 'कार्तिक दीपम् संग्रह',
     category: 'puja-festival',
-    shortDescription: 'A curated collection for Karthika Deepam celebrations — diyas, essentials and festival items.',
+    shortDescription: 'A curated collection for Karthika Deepam celebrations — brass diyas, sacred wicks and festival essentials.',
     fullDescription:
-      'Celebrate Karthika Deepam with a thoughtfully curated collection of festival essentials. Details to be finalised.',
+      'Celebrate the auspicious month of Karthika with hand-cast diyas, pure cotton wicks, and festival storytelling guides for families to perform evening Deeparadhana together.',
     status: 'coming-soon',
     images: ['/images/products/karthika-deepam-set.jpg'],
-    tags: ['festival', 'karthika', 'diya'],
+    tags: ['festival', 'karthika', 'diya', 'puja'],
   },
   {
     slug: 'janmashtami-collection',
     name: 'Janmashtami Collection',
+    nameSanskrit: 'जन्माष्टमी संग्रह',
     category: 'puja-festival',
-    shortDescription: 'A special collection for Janmashtami celebrations — Krishna-themed devotional items and gifts.',
+    shortDescription: 'Special Krishna-themed devotional items, peacock feather bookmarks, and festival celebration accessories.',
     fullDescription:
-      'A collection of devotional items and gifts inspired by the celebration of Sri Krishna\'s birth. Details to be finalised.',
+      'A joyful collection dedicated to Sri Krishna\'s appearance day celebrations, featuring pocket verse booklets, altar accessories, and festive gifts for children.',
     status: 'coming-soon',
     images: ['/images/products/janmashtami.jpg'],
     tags: ['festival', 'janmashtami', 'krishna', 'gift'],
@@ -114,13 +141,14 @@ export const products: Product[] = [
   {
     slug: 'devotional-gift-hamper',
     name: 'Devotional Gift Hamper',
+    nameSanskrit: 'माङ्गल्य उपहार पेटिका',
     category: 'devotional-gifting',
-    shortDescription: 'A beautifully curated devotional gift hamper — a meaningful gift for any occasion.',
+    shortDescription: 'A beautifully arranged gift hamper with devotional treasures for birthdays, Upanayanam, and family festivals.',
     fullDescription:
-      'A thoughtfully assembled devotional gift hamper suitable for gifting on festivals, birthdays and special occasions. Contents and pricing to be confirmed.',
+      'A customized spiritual gift hamper combining Bhakti packs, scripture books, and auspicious celebration items in an elegant gold-embossed presentation box.',
     status: 'coming-soon',
     images: ['/images/products/gift-hamper.jpg'],
-    tags: ['gift', 'hamper', 'devotional'],
+    tags: ['gift', 'hamper', 'devotional', 'celebration'],
   },
 ];
 

@@ -1,29 +1,29 @@
-// Social links configuration — all values are placeholders until officially confirmed
-// Update these in src/config/site.ts — they are re-exported here for convenience
+// Social links configuration
+import { getWhatsAppUrl } from '@/lib/utils/whatsapp';
 
 export const socialLinks = {
   instagram: {
     label: 'Instagram',
     handle: '@devamrutam',
-    url: 'https://www.instagram.com/devamrutam', // PLACEHOLDER
+    url: 'https://www.instagram.com/devamrutam',
     platform: 'instagram' as const,
   },
   youtube: {
     label: 'YouTube',
     handle: '@devamrutam',
-    url: 'https://www.youtube.com/@devamrutam', // PLACEHOLDER
+    url: 'https://www.youtube.com/@devamrutam',
     platform: 'youtube' as const,
   },
   whatsapp: {
     label: 'WhatsApp',
-    handle: 'WhatsApp Business',
-    url: 'https://wa.me/91XXXXXXXXXX', // PLACEHOLDER — replace with actual WhatsApp Business number
+    handle: '+91 7205645789',
+    url: getWhatsAppUrl('Hare Krishna! I would like to connect with DEVAMRUTAM.'),
     platform: 'whatsapp' as const,
   },
   softwarePrabhuji: {
     label: 'Software Prabhuji',
     handle: '@softwareprabhuji',
-    url: 'https://www.youtube.com/@softwareprabhuji', // PLACEHOLDER
+    url: 'https://www.youtube.com/@softwareprabhuji',
     platform: 'youtube' as const,
     description: 'Devotional content in Telugu, English & Hindi',
   },
