@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
+import SpiritualIcon, { type SpiritualIconName } from "@/components/icons/SpiritualIcons";
+import SacredBackground from "@/components/background/SacredBackground";
 import Link from 'next/link';
-import { ArrowRight, Calendar, Sparkles, Users, HeartHandshake, Mic2, Compass } from 'lucide-react';
-import { events, getUpcomingEvents } from '@/data/events';
+import { ArrowRight, MapPin, Sparkles, CalendarDays, Wifi } from 'lucide-react';
+import { getUpcomingEvents } from '@/data/events';
 
 export const metadata: Metadata = {
   title: 'Community | DEVAMRUTAM SANNIDHYAM',
@@ -18,36 +20,37 @@ export default function CommunityPage() {
       sanskrit: 'उत्सवामृतम्',
       headline: 'Festival Celebrations',
       desc: 'Online and community celebrations for auspicious festivals such as Karthika Deepam, Janmashtami, and Rama Navami.',
-      icon: '🪔',
+      icon: 'diya' as SpiritualIconName,
     },
     {
       title: 'JÑĀNA VĒDIKA',
       sanskrit: 'ज्ञानवेदिका',
       headline: 'Knowledge & Discourses',
       desc: 'Special lectures, guest speaker interactions, webinars, and guided spiritual discussions on scripture and value-based living.',
-      icon: '🎙️',
+      icon: 'conch' as SpiritualIconName,
     },
     {
       title: 'BHAKTI UTSAVAM',
       sanskrit: 'भक्तिउत्सवम्',
       headline: 'Devotional Programmes',
       desc: 'Bhajan gatherings, devotional recitation, kirtan sessions, and cultural celebrations celebrating the beauty of Indian heritage.',
-      icon: '📿',
+      icon: 'mala' as SpiritualIconName,
     },
     {
       title: 'BĀLA UTSAVAM',
       sanskrit: 'बालोत्सवम्',
       headline: "Children's Cultural Activities",
       desc: 'Shloka recitation contests, Bhagavad Gita quizzes, creative storytelling, art activities, and traditional games for kids.',
-      icon: '🌸',
+      icon: 'flower' as SpiritualIconName,
     },
   ];
 
   return (
     <div className="bg-[#FAF8F2] min-h-screen">
       {/* Hero Header */}
-      <section className="bg-gradient-to-b from-[#F5EBD9] via-[#FAF8F2] to-[#FAF8F2] pt-16 pb-14 border-b border-[#E7DFD0]">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-8 text-center max-w-3xl">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#F5EBD9] via-[#FAF8F2] to-[#FAF8F2] pt-16 pb-14 border-b border-[#E7DFD0]">
+        <SacredBackground variant="community" />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-8 text-center max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#173D32]/10 text-[#173D32] text-[0.8rem] font-semibold mb-4 tracking-wider uppercase">
             <Sparkles size={14} className="text-[#B68A42]" />
             DEVAMRUTAM SANNIDHYAM
@@ -95,8 +98,8 @@ export default function CommunityPage() {
               className="bg-white rounded-2xl border border-[#E7DFD0] p-6 flex flex-col justify-between hover:shadow-md transition-shadow"
             >
               <div>
-                <span className="text-3xl block mb-4" aria-hidden="true">
-                  {cat.icon}
+                <span className="w-12 h-12 rounded-xl bg-[#F5EBD9] text-[#B68A42] flex items-center justify-center mb-4">
+                  <SpiritualIcon name={cat.icon} size={28} />
                 </span>
                 <span className="font-devanagari text-xs text-[#B68A42] font-semibold block mb-1">
                   {cat.sanskrit}
@@ -139,10 +142,17 @@ export default function CommunityPage() {
           {upcomingEvents.length > 0 ? (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {upcomingEvents.map((evt) => (
-                <div key={evt.id} className="bg-white rounded-xl border border-[#E7DFD0] p-6">
-                  <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-[#EBF4F0] text-[#173D32] uppercase">
-                    {evt.category}
-                  </span>
+                <div key={evt.id} className="bg-white rounded-xl border border-[#E7DFD0] p-6 flex flex-col hover:border-[#D8BC83] hover:shadow-md transition-all">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-[#EBF4F0] text-[#173D32] uppercase">
+                      {evt.category}
+                    </span>
+                    {evt.isOnline && (
+                      <span className="inline-flex items-center gap-1 text-xs text-[#77756D]">
+                        <Wifi size={12} className="text-[#B68A42]" /> Online
+                      </span>
+                    )}
+                  </div>
                   <h3 className="font-cormorant font-bold text-lg text-[#173D32] mt-3 mb-2">
                     {evt.title}
                   </h3>
@@ -150,12 +160,34 @@ export default function CommunityPage() {
                   <p className="text-xs text-[#373A35]">
                     <strong>Audience:</strong> {evt.audience}
                   </p>
+                  {(evt.date || evt.location) && (
+                    <p className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-[#373A35] mt-2">
+                      {evt.date && (
+                        <span className="inline-flex items-center gap-1">
+                          <CalendarDays size={13} className="text-[#B68A42]" />
+                          {new Date(evt.date).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })}
+                          {evt.time ? `, ${evt.time}` : ""}
+                        </span>
+                      )}
+                      {evt.location && (
+                        <span className="inline-flex items-center gap-1">
+                          <MapPin size={13} className="text-[#B68A42]" /> {evt.location}
+                        </span>
+                      )}
+                    </p>
+                  )}
+                  <a
+                    href={evt.registrationUrl ?? `/contact?category=community`}
+                    className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-[#173D32] hover:text-[#B68A42] transition-colors"
+                  >
+                    {evt.registrationUrl ? "Register" : "Enquire"} <ArrowRight size={13} />
+                  </a>
                 </div>
               ))}
             </div>
           ) : (
             <div className="bg-white rounded-2xl border border-[#E7DFD0] p-10 text-center max-w-xl mx-auto">
-              <span className="text-4xl block mb-3">🪔</span>
+              <SpiritualIcon name="diya" size={44} className="text-[#B68A42] mx-auto mb-3" />
               <h3 className="font-cormorant font-bold text-2xl text-[#173D32] mb-2">
                 New Experiences are Coming Soon
               </h3>
@@ -177,7 +209,7 @@ export default function CommunityPage() {
       {/* Community Collaboration CTA */}
       <section className="max-w-[1200px] mx-auto px-6 lg:px-8 py-16 text-center">
         <div className="max-w-2xl mx-auto">
-          <HeartHandshake size={32} className="text-[#B68A42] mx-auto mb-3" />
+          <SpiritualIcon name="people" size={38} className="text-[#B68A42] mx-auto mb-3" />
           <h2 className="font-cormorant font-bold text-2xl sm:text-3xl text-[#173D32] mb-3">
             Interested in Collaborating?
           </h2>

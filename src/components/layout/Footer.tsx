@@ -4,12 +4,10 @@ import { InstagramIcon, YoutubeIcon } from '@/components/ui/SocialIcons';
 import { footerNavGroups } from '@/data/navigation';
 import { siteConfig } from '@/config/site';
 import { socialLinks } from '@/config/social';
-import { getWhatsAppUrl } from '@/lib/utils/whatsapp';
-import { Mail, MessageCircle, Phone } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
 export default function Footer() {
   const year = siteConfig.copyrightYear;
-  const whatsappUrl = getWhatsAppUrl('Hare Krishna! I would like to enquire with DEVAMRUTAM.');
 
   return (
     <footer className="bg-[#102D25] text-[#D8BC83]" role="contentinfo">
@@ -53,12 +51,6 @@ export default function Footer() {
             {/* Direct Contact info in Footer */}
             <div className="space-y-2 mb-5 text-xs text-[#D8BC83]/80">
               <div className="flex items-center gap-2">
-                <Phone size={14} className="text-[#B68A42]" />
-                <a href="tel:+917205645789" className="hover:text-white transition-colors">
-                  +91 7205645789
-                </a>
-              </div>
-              <div className="flex items-center gap-2">
                 <Mail size={14} className="text-[#B68A42]" />
                 <a href="mailto:devamrutam27@gmail.com" className="hover:text-white transition-colors">
                   devamrutam27@gmail.com
@@ -68,15 +60,6 @@ export default function Footer() {
 
             {/* Social links */}
             <div className="flex items-center gap-3">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Direct WhatsApp (+91 7205645789)"
-                className="w-9 h-9 rounded-full bg-[#173D32] flex items-center justify-center text-[#D8BC83]/80 hover:text-[#D8BC83] hover:bg-[#1F4D3E] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B68A42]"
-              >
-                <MessageCircle size={16} />
-              </a>
               {socialLinks.instagram.url && (
                 <a
                   href={socialLinks.instagram.url}
@@ -127,36 +110,6 @@ export default function Footer() {
           )}
         </div>
 
-        {/* Software Prabhuji identity */}
-        <div className="mt-10 sm:mt-12 pt-7 sm:pt-8 border-t border-[#173D32]">
-          <div className="bg-[#173D32]/40 rounded-2xl px-5 sm:px-6 py-4 sm:py-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <div className="flex-1">
-              <p className="text-[#D8BC83] text-[0.75rem] sm:text-[0.8rem] uppercase tracking-[0.1em] font-semibold mb-1">
-                Content Creator Identity
-              </p>
-              <p className="text-[#D8BC83]/90 text-[0.9rem] font-cormorant">
-                Software Prabhuji —{' '}
-                <span className="text-[#D8BC83]/60 text-[0.85rem] font-inter">
-                  Devotional discourses in Telugu, English &amp; Hindi · Bhagavad Gita · Sanskrit Shlokas
-                </span>
-              </p>
-              <p className="text-[#D8BC83]/50 text-[0.75rem] mt-1">
-                Founded by {siteConfig.founderName} (Polyglot: English, Telugu, Hindi, Tamil, Odia)
-              </p>
-            </div>
-            {socialLinks.softwarePrabhuji.url && (
-              <a
-                href={socialLinks.softwarePrabhuji.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-[#173D32] text-[#D8BC83] text-[0.8rem] font-medium rounded-xl hover:bg-[#1F4D3E] transition-colors whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B68A42]"
-              >
-                <YoutubeIcon size={14} />
-                <span>YouTube Channel</span>
-              </a>
-            )}
-          </div>
-        </div>
       </div>
 
       {/* Bottom bar */}

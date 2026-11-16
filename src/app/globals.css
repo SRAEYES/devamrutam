@@ -265,3 +265,51 @@ body {
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
 }
+
+/* Home hero temple: gentle lamp flicker and rising light motes */
+@keyframes flame-flicker {
+  0%, 100% { transform: scale(1, 1); }
+  25% { transform: scale(0.94, 1.07); }
+  50% { transform: scale(1.05, 0.96); }
+  75% { transform: scale(0.97, 1.03); }
+}
+@keyframes mote-rise {
+  0% { transform: translateY(0); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translateY(-26px); opacity: 0; }
+}
+.flame {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: flame-flicker 2.6s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+}
+.mote {
+  animation: mote-rise 5s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+}
+@media (prefers-reduced-motion: reduce) {
+  .flame, .mote { animation: none; }
+}
+
+/* Home hero: dedicated left region for the gopuram on wide screens.
+   --hero-g is the gopuram width; the hero text column starts to its right. */
+:root {
+  --hero-g: min(clamp(250px, 20vw, 380px), calc((100vh - 136px) / 1.6333));
+  --hero-margin: calc((100vw - min(100vw, 1360px)) / 2);
+}
+@media (min-width: 1280px) {
+  .hero-pad {
+    padding-left: max(2rem, calc(var(--hero-g) + 48px - var(--hero-margin)));
+  }
+  .hero-gopuram {
+    /* centred in the first visible screen (below the 72px header) so base and
+       kalasha are both on screen without scrolling */
+    top: max(1.5rem, calc((100vh - 72px - var(--hero-g) * 1.6333) / 2));
+    right: auto;
+    bottom: auto;
+    height: auto;
+    width: var(--hero-g);
+    left: max(16px, calc(var(--hero-margin) - var(--hero-g)));
+  }
+}

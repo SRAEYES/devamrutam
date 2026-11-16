@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
+import SpiritualIcon, { type SpiritualIconName } from "@/components/icons/SpiritualIcons";
+import ProgrammeCard from "@/components/courses/ProgrammeCard";
+import SacredBackground from "@/components/background/SacredBackground";
 import Link from 'next/link';
-import { ArrowRight, BookOpen, Clock, Users, Globe2, Sparkles, CheckCircle2, MessageCircle } from 'lucide-react';
+import { Users, Sparkles } from 'lucide-react';
 import { courses, getStatusLabel } from '@/data/courses';
-import { getCourseWhatsAppUrl, getWhatsAppUrl } from '@/lib/utils/whatsapp';
+import { getCourseWhatsAppUrl } from '@/lib/utils/whatsapp';
 
 export const metadata: Metadata = {
   title: 'Gurukulam Learning Programmes | DEVAMRUTAM GURUKULAM',
@@ -10,20 +13,27 @@ export const metadata: Metadata = {
     'Structured online spiritual education programmes for children. Learn Sanskrit shlokas, Bhagavad Gita wisdom, devotional stories, and traditional values.',
 };
 
-const courseIcons: Record<string, string> = {
-  'bala-amrutam': '🌸',
-  'shloka-saurabham': '📿',
-  'gita-bodham': '📖',
-  'katha-amrutam': '📜',
-  'nitya-aradhana': '🪔',
+const courseIcons: Record<string, SpiritualIconName> = {
+  "bala-amrutam": "lotus",
+  "shloka-saurabham": "mala",
+  "gita-bodham": "book",
+  "katha-amrutam": "scroll",
+  "nitya-aradhana": "diya",
 };
+
+const enquirySteps = [
+  { title: "Choose a programme", text: "Browse the programmes below and find the age band that fits your child.", icon: "book" as SpiritualIconName },
+  { title: "Get in touch", text: "Share your child's age, language preference and background.", icon: "flower" as SpiritualIconName },
+  { title: "Get a suitable batch", text: "We personally review readiness and suggest the right small batch.", icon: "lotus" as SpiritualIconName },
+];
 
 export default function LearnCataloguePage() {
   return (
     <div className="bg-[#FAF8F2] min-h-screen">
       {/* Hero Header */}
-      <section className="bg-gradient-to-b from-[#F5EBD9] via-[#FAF8F2] to-[#FAF8F2] pt-14 pb-12 border-b border-[#E7DFD0]">
-        <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#F5EBD9] via-[#FAF8F2] to-[#FAF8F2] pt-14 pb-12 border-b border-[#E7DFD0]">
+        <SacredBackground variant="learn" />
+        <div className="relative z-10 max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8 text-center max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#173D32]/10 text-[#173D32] text-[0.8rem] font-semibold mb-4 tracking-wider uppercase">
             <Sparkles size={14} className="text-[#B68A42]" />
             DEVAMRUTAM GURUKULAM
@@ -37,151 +47,61 @@ export default function LearnCataloguePage() {
 
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-[0.85rem] text-[#373A35] pt-2">
             <span className="flex items-center gap-1.5">
-              <Globe2 size={16} className="text-[#B68A42]" /> Multilingual: English, Telugu, Hindi, Tamil &amp; Odia
-            </span>
-            <span className="flex items-center gap-1.5">
               <Users size={16} className="text-[#B68A42]" /> Interactive Small Batches
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Clock size={16} className="text-[#B68A42]" /> Direct WhatsApp Support
             </span>
           </div>
         </div>
       </section>
 
+      {/* How enquiry works */}
+      <section className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8 pt-10 sm:pt-12" aria-labelledby="how-enquiry-heading">
+        <h2 id="how-enquiry-heading" className="sr-only">How enquiry works</h2>
+        <ol className="grid sm:grid-cols-3 gap-4 sm:gap-5">
+          {enquirySteps.map((step, i) => (
+            <li key={step.title} className="flex gap-4 bg-white border border-[#E7DFD0] rounded-2xl p-5">
+              <span className="w-11 h-11 rounded-xl bg-[#F5EBD9] text-[#B68A42] flex items-center justify-center flex-shrink-0">
+                <SpiritualIcon name={step.icon} size={26} />
+              </span>
+              <div>
+                <p className="font-cormorant font-bold text-[1.15rem] text-[#173D32] leading-tight">
+                  {i + 1}. {step.title}
+                </p>
+                <p className="text-xs text-[#77756D] leading-relaxed mt-1">{step.text}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
       {/* Catalogue List */}
       <section className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div className="space-y-8 sm:space-y-10">
-          {courses.map((course) => {
-            const isEnquiryOpen = course.status === 'enquiry-open';
-            const whatsappUrl = getCourseWhatsAppUrl(course.nameDisplay, course.nameSanskrit);
-
-            return (
-              <div
-                key={course.slug}
-                className="bg-white rounded-3xl border border-[#E7DFD0] p-6 sm:p-8 lg:p-10 shadow-xs hover:shadow-md transition-shadow duration-300"
-              >
-                <div className="grid lg:grid-cols-12 gap-8 items-start">
-                  {/* Left Column: Course Info */}
-                  <div className="lg:col-span-8">
-                    <div className="flex flex-wrap items-center gap-3 mb-3">
-                      <span className="text-3xl" aria-hidden="true">
-                        {courseIcons[course.slug] || '🌸'}
-                      </span>
-                      <div>
-                        <span className="font-devanagari text-[#B68A42] text-[0.95rem] block font-medium">
-                          {course.nameSanskrit}
-                        </span>
-                        <h2 className="font-cormorant font-bold text-2xl sm:text-3xl text-[#173D32] leading-snug">
-                          {course.nameDisplay}
-                        </h2>
-                      </div>
-                      <div className="ml-auto">
-                        <span
-                          className={`text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider ${
-                            isEnquiryOpen
-                              ? 'bg-[#EBF4F0] text-[#173D32] border border-[#B8D5C9]'
-                              : 'bg-[#F5EBD9] text-[#77756D] border border-[#E7DFD0]'
-                          }`}
-                        >
-                          {getStatusLabel(course.status)}
-                        </span>
-                      </div>
-                    </div>
-
-                    <p className="font-cormorant italic text-[#B68A42] text-[1.05rem] sm:text-[1.1rem] mb-4">
-                      &ldquo;{course.positioningTagline}&rdquo;
-                    </p>
-
-                    <p className="text-[#373A35] text-[0.92rem] sm:text-[0.95rem] leading-relaxed mb-6">
-                      {course.fullDescription}
-                    </p>
-
-                    {/* Topics covered */}
-                    <div className="mb-6">
-                      <h4 className="text-[0.75rem] font-bold uppercase tracking-wider text-[#77756D] mb-3">
-                        Key Areas of Focus:
-                      </h4>
-                      <div className="grid sm:grid-cols-2 gap-2.5">
-                        {course.topics.slice(0, 4).map((topic, i) => (
-                          <div key={i} className="flex items-start gap-2 text-xs sm:text-sm text-[#373A35]">
-                            <CheckCircle2 size={16} className="text-[#B68A42] mt-0.5 flex-shrink-0" />
-                            <span>{topic}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Badges */}
-                    <div className="flex flex-wrap gap-4 text-xs text-[#77756D] pt-4 border-t border-[#E7DFD0]">
-                      <div>
-                        <strong className="text-[#373A35]">Age Band:</strong> {course.ageGroupDisplay}
-                      </div>
-                      <div>
-                        <strong className="text-[#373A35]">Languages:</strong> English, Telugu, Hindi, Tamil &amp; Odia
-                      </div>
-                      <div>
-                        <strong className="text-[#373A35]">Duration:</strong> {course.duration}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Right Column: CTA card with WhatsApp Enquire */}
-                  <div className="lg:col-span-4 bg-[#FAF8F2] rounded-2xl border border-[#E7DFD0] p-6 flex flex-col justify-between h-full">
-                    <div>
-                      <h3 className="font-cormorant font-bold text-xl text-[#173D32] mb-2">
-                        Admission &amp; Enquiries
-                      </h3>
-                      <p className="text-xs text-[#77756D] leading-relaxed mb-4">
-                        Batches are kept small for personal guidance. Reach out directly on WhatsApp to discuss batch schedule and your child&apos;s background.
-                      </p>
-                      <div className="p-3 bg-[#F5EBD9]/70 rounded-xl border border-[#E7DFD0] text-xs text-[#173D32] mb-5">
-                        <strong>WhatsApp Hotline:</strong> <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="font-semibold underline">+91 7205645789</a>
-                      </div>
-                    </div>
-
-                    <div className="space-y-2.5">
-                      <a
-                        href={whatsappUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#173D32] text-white text-xs sm:text-sm font-semibold rounded-xl hover:bg-[#102D25] transition-colors shadow-xs"
-                      >
-                        <MessageCircle size={16} className="text-[#D8BC83]" />
-                        <span>Enquire for Admission</span>
-                      </a>
-                      <Link
-                        href={`/learn/${course.slug}`}
-                        className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 border border-[#173D32] text-[#173D32] text-xs sm:text-sm font-medium rounded-xl hover:bg-[#F5EBD9] transition-colors"
-                      >
-                        View Full Syllabus
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+        <div className="space-y-6 sm:space-y-8">
+          {courses.map((course) => (
+            <ProgrammeCard
+              key={course.slug}
+              course={course}
+              icon={courseIcons[course.slug] ?? "lotus"}
+              statusLabel={getStatusLabel(course.status)}
+              whatsappUrl={getCourseWhatsAppUrl(course.nameDisplay, course.nameSanskrit)}
+            />
+          ))}
         </div>
 
-        {/* Informational Guidance Box */}
+        {/* Know more about us */}
         <div className="mt-12 sm:mt-16 bg-[#F5EBD9] border border-[#E7DFD0] rounded-3xl p-7 sm:p-10 text-center max-w-2xl mx-auto shadow-xs">
-          <BookOpen size={28} className="text-[#B68A42] mx-auto mb-3" />
+          <SpiritualIcon name="lotus" size={34} className="text-[#B68A42] mx-auto mb-3" />
           <h3 className="font-cormorant font-bold text-2xl text-[#173D32] mb-2">
-            Have Questions About Course Placement?
+            Know More About DEVAMRUTAM
           </h3>
           <p className="text-xs sm:text-sm text-[#77756D] leading-relaxed mb-6 max-w-md mx-auto">
-            Our founder personally reviews each child&apos;s readiness, linguistic preference, and spiritual background to assign the most encouraging batch.
+            Learn about our vision, our founder and the journey behind these programmes.
           </p>
-          <a
-            href={getWhatsAppUrl('Hare Krishna! I would like guidance on which DEVAMRUTAM programme is right for my child.')}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/about"
             className="inline-flex items-center gap-2 px-7 py-3 bg-[#173D32] text-white text-xs sm:text-sm font-semibold rounded-xl hover:bg-[#102D25] transition-colors shadow-sm"
           >
-            <MessageCircle size={16} className="text-[#D8BC83]" />
-            <span>Chat on WhatsApp (+91 7205645789)</span>
-          </a>
+            About Us
+          </Link>
         </div>
       </section>
     </div>

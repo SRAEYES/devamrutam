@@ -16,7 +16,7 @@ export const courses: Course[] = [
     nameSanskrit: 'बालामृतम्',
     positioningTagline: 'A joyful first step into spiritual learning.',
     shortDescription:
-      'A gentle, joyful introduction to devotional practices, simple Sanskrit shlokas, Krishna and Rama stories, and core spiritual values for young children.',
+      "An engaging introduction to Sanskrit shlokas, devotional stories, simple prayers and values from India's spiritual traditions, designed especially for young children.",
     fullDescription:
       'Bāla Amṛtam is designed to be a child\'s very first encounter with India\'s rich spiritual tradition — warm, joyful and entirely at the child\'s pace. Through simple shlokas, illustrated devotional stories and value-based activities, young learners develop a natural love for learning, prayers and devotional practices.',
     ageGroup: '5-9',

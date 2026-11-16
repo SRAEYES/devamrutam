@@ -156,7 +156,7 @@ export default async function SingleProductPage({ params }: ProductPageProps) {
                 How to Order via WhatsApp:
               </p>
               <p className="text-[#77756D] leading-relaxed">
-                Click the button below to message our official number (<strong>+91 7205645789</strong>). We will confirm your delivery address, share payment details (UPI/Bank Transfer), and dispatch your order with tracking details.
+                Click the button below to message us on WhatsApp. We will confirm your delivery address, share payment details (UPI/Bank Transfer), and dispatch your order with tracking details.
               </p>
             </div>
 

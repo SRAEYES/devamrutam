@@ -1,22 +1,18 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import {
-  ArrowLeft,
-  ArrowRight,
-  BookOpen,
-  Calendar,
-  CheckCircle,
-  Clock,
-  Globe,
-  HelpCircle,
-  Languages,
-  MessageCircle,
-  Sparkles,
-  Users,
-} from 'lucide-react';
+import { CheckCircle, HelpCircle, MessageCircle } from 'lucide-react';
+import SpiritualIcon, { type SpiritualIconName } from "@/components/icons/SpiritualIcons";
 import { courses, getCourseBySlug, getStatusLabel } from '@/data/courses';
 import { getCourseWhatsAppUrl } from '@/lib/utils/whatsapp';
+
+const courseIcons: Record<string, SpiritualIconName> = {
+  "bala-amrutam": "lotus",
+  "shloka-saurabham": "mala",
+  "gita-bodham": "book",
+  "katha-amrutam": "scroll",
+  "nitya-aradhana": "diya",
+};
 
 interface CoursePageProps {
   params: Promise<{
@@ -81,10 +77,11 @@ export default async function SingleCoursePage({ params }: CoursePageProps) {
       {/* Course Hero */}
       <section className="bg-gradient-to-b from-[#F5EBD9] to-[#FAF8F2] py-12 sm:py-16 lg:py-20 border-b border-[#E7DFD0]">
         <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
+          <div className="grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] gap-8 lg:gap-14 items-center">
+          <div>
             <div className="flex flex-wrap items-center gap-3 mb-4">
-              <span className="text-3xl" aria-hidden="true">
-                {course.icon}
+              <span className="w-11 h-11 rounded-xl bg-white/80 border border-[#E7DFD0] text-[#B68A42] flex items-center justify-center">
+                <SpiritualIcon name={courseIcons[course.slug] ?? "lotus"} size={26} />
               </span>
               <span className="font-devanagari text-[#B68A42] text-lg font-medium">
                 {course.nameSanskrit}
@@ -108,25 +105,9 @@ export default async function SingleCoursePage({ params }: CoursePageProps) {
               &ldquo;{course.positioningTagline}&rdquo;
             </p>
 
-            <p className="text-[#373A35] text-base sm:text-lg leading-relaxed mb-8">
+            <p className="text-[#373A35] text-base sm:text-lg leading-relaxed mb-8 max-w-[60ch]">
               {course.fullDescription}
             </p>
-
-            {/* Quick Specs */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 p-5 bg-white/90 rounded-2xl border border-[#E7DFD0] mb-8 shadow-xs">
-              <div>
-                <span className="text-xs uppercase text-[#77756D] block font-medium">Suggested Age</span>
-                <span className="font-bold text-sm text-[#173D32]">{course.ageGroupDisplay}</span>
-              </div>
-              <div>
-                <span className="text-xs uppercase text-[#77756D] block font-medium">Teaching Languages</span>
-                <span className="font-bold text-sm text-[#173D32]">English, Telugu, Hindi, Tamil &amp; Odia</span>
-              </div>
-              <div className="col-span-2 sm:col-span-1">
-                <span className="text-xs uppercase text-[#77756D] block font-medium">Estimated Duration</span>
-                <span className="font-bold text-sm text-[#173D32]">{course.duration}</span>
-              </div>
-            </div>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
               <a
@@ -136,24 +117,34 @@ export default async function SingleCoursePage({ params }: CoursePageProps) {
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#173D32] text-white font-semibold rounded-xl hover:bg-[#102D25] transition-colors text-sm shadow-sm"
               >
                 <MessageCircle size={18} className="text-[#D8BC83]" />
-                <span>Enquire on WhatsApp (+91 7205645789)</span>
+                <span>Enquire on WhatsApp</span>
               </a>
-              <Link
-                href={`/parent-enquiry?course=${course.slug}`}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-[#173D32] text-[#173D32] font-semibold rounded-xl hover:bg-[#F5EBD9] transition-colors text-sm"
-              >
-                Online Parent Form
-              </Link>
             </div>
           </div>
+              {/* Quick Specs */}
+              <div className="grid gap-4 p-5 sm:p-6 bg-white/90 rounded-2xl border border-[#E7DFD0] shadow-xs">
+                <div>
+                  <span className="text-xs uppercase text-[#77756D] block font-medium">Suggested Age</span>
+                  <span className="font-bold text-sm text-[#173D32]">{course.ageGroupDisplay}</span>
+                </div>
+                <div>
+                  <span className="text-xs uppercase text-[#77756D] block font-medium">Teaching Languages</span>
+                  <span className="font-bold text-sm text-[#173D32]">{course.teachingLanguages.join(', ')}</span>
+                </div>
+                <div >
+                  <span className="text-xs uppercase text-[#77756D] block font-medium">Estimated Duration</span>
+                  <span className="font-bold text-sm text-[#173D32]">{course.duration}</span>
+                </div>
+              </div>
+  
+            </div>
         </div>
       </section>
 
       {/* Course Detail Content */}
       <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12">
-          {/* Main Content (8 cols) */}
-          <div className="lg:col-span-8 space-y-12 sm:space-y-14">
+        <div className="space-y-12 sm:space-y-14">
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-start">
             {/* Who Should Join */}
             <section aria-labelledby="who-heading">
               <h2 id="who-heading" className="font-cormorant font-bold text-2xl sm:text-3xl text-[#173D32] mb-4">
@@ -186,12 +177,14 @@ export default async function SingleCoursePage({ params }: CoursePageProps) {
               </div>
             </section>
 
+            </div>
+
             {/* Topics Covered */}
             <section aria-labelledby="topics-heading">
               <h2 id="topics-heading" className="font-cormorant font-bold text-2xl sm:text-3xl text-[#173D32] mb-4">
                 What Children Will Learn
               </h2>
-              <div className="grid sm:grid-cols-2 gap-3.5">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
                 {course.topics.map((topic, i) => (
                   <div key={i} className="bg-white rounded-2xl border border-[#E7DFD0] p-4 flex items-start gap-3 shadow-2xs">
                     <span className="text-[#B68A42] font-bold text-sm">0{i + 1}.</span>
@@ -210,7 +203,7 @@ export default async function SingleCoursePage({ params }: CoursePageProps) {
                 <span className="text-xs text-[#77756D] font-medium">Weekly Modules</span>
               </div>
 
-              <div className="space-y-3.5">
+              <div className="grid lg:grid-cols-2 gap-3.5">
                 {course.curriculum.map((weekItem) => (
                   <div
                     key={weekItem.week}
@@ -242,7 +235,7 @@ export default async function SingleCoursePage({ params }: CoursePageProps) {
                   Frequently Asked Questions
                 </h2>
 
-                <div className="space-y-3">
+                <div className="grid lg:grid-cols-2 gap-3 items-start">
                   {course.faqs.map((faq, i) => (
                     <details
                       key={i}
@@ -262,55 +255,41 @@ export default async function SingleCoursePage({ params }: CoursePageProps) {
                 </div>
               </section>
             )}
-          </div>
 
-          {/* Sidebar (4 cols) */}
-          <div className="lg:col-span-4 space-y-6">
-            {/* Sticky Enrolment Box */}
-            <div className="bg-white rounded-3xl border border-[#E7DFD0] p-6 lg:p-8 shadow-sm lg:sticky lg:top-24">
-              <span className="text-xs uppercase tracking-wider text-[#B68A42] font-bold block mb-1">
-                Parent Enrolment
-              </span>
-              <h3 className="font-cormorant font-bold text-2xl text-[#173D32] mb-2">
-                Instant WhatsApp Enquiry
-              </h3>
-              <p className="text-xs text-[#77756D] leading-relaxed mb-6">
-                Connect directly with our founder on WhatsApp (+91 7205645789) for immediate batch scheduling and cohort recommendations.
-              </p>
-
-              <div className="space-y-3 text-xs text-[#373A35] pb-5 mb-5 border-b border-[#E7DFD0]">
-                <div className="flex items-center gap-2">
-                  <Languages size={15} className="text-[#B68A42]" />
-                  <span>Languages: <strong>English, Telugu, Hindi, Tamil, Odia</strong></span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Users size={15} className="text-[#B68A42]" />
-                  <span>Format: <strong>Live Interactive Online</strong></span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Clock size={15} className="text-[#B68A42]" />
-                  <span>Timing: <strong>Discussed &amp; tailored</strong></span>
-                </div>
+            {/* Parent enrolment (single place for the online form) */}
+            <section
+              aria-labelledby="enrol-heading"
+              className="bg-white rounded-3xl border border-[#D8BC83]/70 p-6 sm:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-5"
+            >
+              <div className="max-w-xl">
+                <span className="text-xs uppercase tracking-wider text-[#B68A42] font-bold block mb-1">
+                  Parent Enrolment
+                </span>
+                <h2 id="enrol-heading" className="font-cormorant font-bold text-2xl sm:text-3xl text-[#173D32] mb-1.5">
+                  Begin Your Child&apos;s Journey
+                </h2>
+                <p className="text-sm text-[#77756D] leading-relaxed">
+                  Message our founder for batch scheduling and cohort recommendations. Prefer a form? You can also submit an online enquiry.
+                </p>
               </div>
-
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#173D32] text-white text-xs sm:text-sm font-semibold rounded-xl hover:bg-[#102D25] transition-colors mb-2.5 shadow-xs"
-              >
-                <MessageCircle size={16} className="text-[#D8BC83]" />
-                <span>Enquire via WhatsApp</span>
-              </a>
-
-              <Link
-                href={`/parent-enquiry?course=${course.slug}`}
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-2.5 border border-[#173D32] text-[#173D32] text-xs font-semibold rounded-xl hover:bg-[#F5EBD9] transition-colors"
-              >
-                Fill Out Online Form
-              </Link>
-            </div>
-          </div>
+              <div className="flex flex-col sm:flex-row md:flex-col lg:flex-row gap-2.5 flex-shrink-0">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#173D32] text-white text-sm font-semibold rounded-xl hover:bg-[#102D25] transition-colors"
+                >
+                  <MessageCircle size={16} className="text-[#D8BC83]" />
+                  <span>Enquire via WhatsApp</span>
+                </a>
+                <Link
+                  href={`/parent-enquiry?course=${course.slug}`}
+                  className="inline-flex items-center justify-center px-6 py-3 border border-[#173D32] text-[#173D32] text-sm font-semibold rounded-xl hover:bg-[#F5EBD9] transition-colors"
+                >
+                  Fill Out Online Form
+                </Link>
+              </div>
+            </section>
         </div>
       </div>
     </div>
