@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import FloatingWhatsApp from '@/components/ui/FloatingWhatsApp';
 import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
@@ -89,6 +90,7 @@ export default function RootLayout({
         <main id="main-content" tabIndex={-1} className="pt-[72px]">
           {children}
         </main>
+        <FloatingWhatsApp />
         <Footer />
       </body>
     </html>

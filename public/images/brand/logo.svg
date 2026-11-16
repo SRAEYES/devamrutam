@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2CA92" />
+      <stop offset="50%" stop-color="#B68A42" />
+      <stop offset="100%" stop-color="#8C6424" />
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FAF8F2" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#B68A42" stop-opacity="0.1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Sacred Geometry Halo -->
+  <circle cx="60" cy="60" r="56" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.6" />
+  <circle cx="60" cy="60" r="52" fill="none" stroke="url(#goldGrad)" stroke-width="0.8" opacity="0.8" />
+
+  <!-- Background Medallion -->
+  <circle cx="60" cy="60" r="48" fill="#173D32" stroke="url(#goldGrad)" stroke-width="1.8" />
+
+  <!-- Radiant Aura -->
+  <circle cx="60" cy="60" r="38" fill="url(#glowGrad)" opacity="0.25" />
+
+  <!-- Stylized Lotus Base -->
+  <path d="M60 84 C48 84 36 78 30 68 C38 68 46 72 52 75 C45 62 48 48 55 42 C57 52 58 64 60 72 C62 64 63 52 65 42 C72 48 75 62 68 75 C74 72 82 68 90 68 C84 78 72 84 60 84 Z" fill="url(#goldGrad)" />
+
+  <!-- Central Lotus Petal / Jyoti Flame -->
+  <path d="M60 30 C55 42 54 54 60 66 C66 54 65 42 60 30 Z" fill="#F5EBD9" />
+  <path d="M60 36 C57 44 57 50 60 56 C63 50 63 44 60 36 Z" fill="url(#goldGrad)" />
+
+  <!-- Diya Core Dot -->
+  <circle cx="60" cy="74" r="3" fill="#FAF8F2" />
+</svg>
