@@ -313,3 +313,31 @@ body {
     left: max(16px, calc(var(--hero-margin) - var(--hero-g)));
   }
 }
+
+/* About page: scroll reveals, ceiling-light rays, carved parchment border */
+[data-reveal] {
+  transition: opacity 0.9s ease, transform 0.9s ease;
+  transition-delay: var(--rd, 0ms);
+}
+[data-reveal="hidden"] {
+  opacity: 0;
+  transform: translateY(18px);
+}
+@keyframes ray-breathe {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+.about-rays {
+  animation: ray-breathe 14s ease-in-out infinite;
+}
+.carved-band {
+  height: 14px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14' fill='none' stroke='%23B68A42' stroke-width='0.7' stroke-opacity='0.5'%3E%3Cpath d='M0 3.5H28M0 10.5H28'/%3E%3Cpath d='M14 1.5L18 7L14 12.5L10 7Z'/%3E%3Cpath d='M0 7H5M23 7H28'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { transition: none; }
+  [data-reveal="hidden"] { opacity: 1; transform: none; }
+  .about-rays { animation: none; }
+}
