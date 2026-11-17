@@ -1,10 +1,21 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import Image from 'next/image';
-import { notFound } from 'next/navigation';
-import { ArrowLeft, Check, MessageCircle, Package, ShieldCheck } from 'lucide-react';
-import { products, getProductBySlug, getProductStatusLabel, productCategoryLabels } from '@/data/products';
-import { getProductWhatsAppUrl } from '@/lib/utils/whatsapp';
+import type { Metadata } from "next";
+import Link from "next/link";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+import {
+  ArrowLeft,
+  Check,
+  MessageCircle,
+  Package,
+  ShieldCheck,
+} from "lucide-react";
+import {
+  products,
+  getProductBySlug,
+  getProductStatusLabel,
+  productCategoryLabels,
+} from "@/data/products";
+import { getProductWhatsAppUrl } from "@/lib/utils/whatsapp";
 
 interface ProductPageProps {
   params: Promise<{
@@ -18,13 +29,15 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: ProductPageProps): Promise<Metadata> {
   const { slug } = await params;
   const product = getProductBySlug(slug);
 
   if (!product) {
     return {
-      title: 'Product Not Found | DEVAMRUTAM BHĀṆḌĀRAM',
+      title: "Product Not Found | DEVAMRUTAM BHĀṆḌĀRAM",
     };
   }
 
@@ -49,12 +62,18 @@ export default async function SingleProductPage({ params }: ProductPageProps) {
       {/* Breadcrumbs */}
       <div className="bg-[#FAF8F2] border-b border-[#E7DFD0] py-3.5">
         <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
-          <nav className="flex items-center gap-2 text-xs text-[#77756D]" aria-label="Breadcrumb">
+          <nav
+            className="flex items-center gap-2 text-xs text-[#77756D]"
+            aria-label="Breadcrumb"
+          >
             <Link href="/" className="hover:text-[#173D32] transition-colors">
               Home
             </Link>
             <span aria-hidden="true">/</span>
-            <Link href="/store" className="hover:text-[#173D32] transition-colors">
+            <Link
+              href="/store"
+              className="hover:text-[#173D32] transition-colors"
+            >
               Store
             </Link>
             <span aria-hidden="true">/</span>
@@ -78,7 +97,7 @@ export default async function SingleProductPage({ params }: ProductPageProps) {
           <div className="lg:col-span-6 space-y-4">
             <div className="relative aspect-[4/3] sm:aspect-square bg-gradient-to-br from-[#F5EBD9] via-[#FAF8F2] to-[#FAF8F2] rounded-3xl border border-[#E7DFD0] overflow-hidden shadow-sm flex items-center justify-center">
               <Image
-                src={`/images/products/${product.slug}.svg`}
+                src={`/images/products/${product.slug}.png`}
                 alt={product.name}
                 width={600}
                 height={600}
@@ -96,7 +115,8 @@ export default async function SingleProductPage({ params }: ProductPageProps) {
 
             <div className="p-4 bg-white rounded-2xl border border-[#E7DFD0] flex items-center justify-between text-xs text-[#77756D]">
               <span className="flex items-center gap-1.5">
-                <ShieldCheck size={16} className="text-[#B68A42]" /> Hand-selected devotional curation
+                <ShieldCheck size={16} className="text-[#B68A42]" />{" "}
+                Hand-selected devotional curation
               </span>
               <span>Category: {productCategoryLabels[product.category]}</span>
             </div>
@@ -139,7 +159,10 @@ export default async function SingleProductPage({ params }: ProductPageProps) {
                 </h3>
                 <ul className="space-y-2.5">
                   {product.contents.map((item, i) => (
-                    <li key={i} className="flex items-center gap-2.5 text-xs sm:text-sm text-[#373A35]">
+                    <li
+                      key={i}
+                      className="flex items-center gap-2.5 text-xs sm:text-sm text-[#373A35]"
+                    >
                       <div className="w-5 h-5 rounded-full bg-[#EBF4F0] text-[#173D32] flex items-center justify-center flex-shrink-0">
                         <Check size={12} />
                       </div>
@@ -156,7 +179,9 @@ export default async function SingleProductPage({ params }: ProductPageProps) {
                 How to Order via WhatsApp:
               </p>
               <p className="text-[#77756D] leading-relaxed">
-                Click the button below to message us on WhatsApp. We will confirm your delivery address, share payment details (UPI/Bank Transfer), and dispatch your order with tracking details.
+                Click the button below to message us on WhatsApp. We will
+                confirm your delivery address, share payment details (UPI/Bank
+                Transfer), and dispatch your order with tracking details.
               </p>
             </div>
 
@@ -172,7 +197,8 @@ export default async function SingleProductPage({ params }: ProductPageProps) {
                 <span>Order / Enquire on WhatsApp (+91 7205645789)</span>
               </a>
               <p className="text-center text-[0.72rem] text-[#77756D]">
-                Direct personalized support via WhatsApp ensures your items are packed with devotion and care.
+                Direct personalized support via WhatsApp ensures your items are
+                packed with devotion and care.
               </p>
             </div>
           </div>
