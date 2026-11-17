@@ -4,7 +4,8 @@ export type SacredVariant =
   | "community"
   | "store"
   | "about"
-  | "contact";
+  | "contact"
+  | "aboutHero";
 
 export interface SacredConfig {
   /** Lotus medallion: centre as fraction of the section, size in px (desktop) */
@@ -65,5 +66,13 @@ export const SACRED_CONFIG: Record<SacredVariant, SacredConfig> = {
     lotus: false,
     glow: false,
     webgl: null,
+  },
+  /** About-page opening: dust motes only (the art is drawn by AboutHero). */
+  aboutHero: {
+    medallion: null,
+    temple: null,
+    lotus: false,
+    glow: false,
+    webgl: { particles: 26, beads: false },
   },
 };
