@@ -26,7 +26,7 @@ export default function ProgrammeCard({ course, icon, statusLabel, whatsappUrl }
       className="scroll-mt-28 bg-white rounded-2xl border border-[#E7DFD0] p-5 sm:p-7 shadow-xs"
       aria-labelledby={`title-${course.slug}`}
     >
-      <div className="grid lg:grid-cols-[minmax(0,13fr)_minmax(0,7fr)] gap-6 lg:gap-8 items-start">
+      <div className="grid md:grid-cols-[minmax(0,13fr)_minmax(0,8fr)] lg:grid-cols-[minmax(0,13fr)_minmax(0,7fr)] gap-6 lg:gap-8 items-start">
         {/* Overview (≈65%) */}
         <div>
           <div className="flex items-center gap-3.5 mb-3">

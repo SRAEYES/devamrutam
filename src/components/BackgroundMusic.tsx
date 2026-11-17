@@ -55,7 +55,7 @@ export default function BackgroundMusic() {
         }
         aria-pressed={isPlaying}
         title={isPlaying ? "Turn music off" : "Play devotional music"}
-        className="fixed bottom-6 left-6 z-40 flex items-center gap-2
+        className="fixed bottom-6 left-6 max-sm:bottom-[max(1rem,env(safe-area-inset-bottom))] max-sm:left-4 max-sm:h-12 max-sm:w-12 max-sm:justify-center max-sm:p-0 z-40 flex items-center gap-2
           rounded-full border border-[#D8BC83]/50
           bg-[#173D32] px-4 py-3 text-[#F5EBD9]
           shadow-lg transition-all duration-300
@@ -69,7 +69,7 @@ export default function BackgroundMusic() {
           <VolumeX size={19} className="text-[#D8BC83]" />
         )}
 
-        <span className="text-xs font-semibold tracking-wide">
+        <span className="text-xs font-semibold tracking-wide max-sm:sr-only">
           {isPlaying ? "Music On" : "Music Off"}
         </span>
       </button>

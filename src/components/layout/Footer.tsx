@@ -22,9 +22,9 @@ export default function Footer() {
 
       {/* Main footer content */}
       <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8 py-12 sm:py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 sm:gap-10">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-x-6 gap-y-9 sm:gap-10">
           {/* Brand column — takes 2 cols */}
-          <div className="lg:col-span-2">
+          <div className="col-span-2 sm:col-span-4 lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-3 mb-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B68A42] rounded-lg">
               <div className="w-10 h-10 rounded-full overflow-hidden bg-[#173D32] border border-[#B68A42]/60 flex items-center justify-center flex-shrink-0">
                 <Image
@@ -52,7 +52,7 @@ export default function Footer() {
             <div className="space-y-2 mb-5 text-xs text-[#D8BC83]/80">
               <div className="flex items-center gap-2">
                 <Mail size={14} className="text-[#B68A42]" />
-                <a href="mailto:devamrutam27@gmail.com" className="hover:text-white transition-colors">
+                <a href="mailto:devamrutam27@gmail.com" className="hover:text-white transition-colors max-lg:inline-block max-lg:py-3">
                   devamrutam27@gmail.com
                 </a>
               </div>
@@ -66,7 +66,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="DEVAMRUTAM on Instagram"
-                  className="w-9 h-9 rounded-full bg-[#173D32] flex items-center justify-center text-[#D8BC83]/80 hover:text-[#D8BC83] hover:bg-[#1F4D3E] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B68A42]"
+                  className="w-9 h-9 max-sm:w-11 max-sm:h-11 rounded-full bg-[#173D32] flex items-center justify-center text-[#D8BC83]/80 hover:text-[#D8BC83] hover:bg-[#1F4D3E] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B68A42]"
                 >
                   <InstagramIcon size={16} />
                 </a>
@@ -77,7 +77,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="DEVAMRUTAM on YouTube"
-                  className="w-9 h-9 rounded-full bg-[#173D32] flex items-center justify-center text-[#D8BC83]/80 hover:text-[#D8BC83] hover:bg-[#1F4D3E] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B68A42]"
+                  className="w-9 h-9 max-sm:w-11 max-sm:h-11 rounded-full bg-[#173D32] flex items-center justify-center text-[#D8BC83]/80 hover:text-[#D8BC83] hover:bg-[#1F4D3E] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B68A42]"
                 >
                   <YoutubeIcon size={16} />
                 </a>
@@ -98,7 +98,7 @@ export default function Footer() {
                       <li key={item.href}>
                         <Link
                           href={item.href}
-                          className="text-[#D8BC83]/60 text-[0.875rem] hover:text-[#D8BC83] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B68A42] rounded"
+                          className="max-lg:inline-block max-lg:py-1.5 text-[#D8BC83]/60 text-[0.875rem] hover:text-[#D8BC83] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B68A42] rounded"
                         >
                           {item.label}
                         </Link>

@@ -66,13 +66,13 @@ export default async function SingleProductPage({ params }: ProductPageProps) {
             className="flex items-center gap-2 text-xs text-[#77756D]"
             aria-label="Breadcrumb"
           >
-            <Link href="/" className="hover:text-[#173D32] transition-colors">
+            <Link href="/" className="max-lg:inline-block max-lg:py-2 hover:text-[#173D32] transition-colors">
               Home
             </Link>
             <span aria-hidden="true">/</span>
             <Link
               href="/store"
-              className="hover:text-[#173D32] transition-colors"
+              className="max-lg:inline-block max-lg:py-2 hover:text-[#173D32] transition-colors"
             >
               Store
             </Link>
@@ -87,7 +87,7 @@ export default async function SingleProductPage({ params }: ProductPageProps) {
       <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8 py-10 sm:py-16">
         <Link
           href="/store"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#77756D] hover:text-[#173D32] transition-colors mb-6 sm:mb-8"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#77756D] hover:text-[#173D32] transition-colors mb-6 sm:mb-8 max-lg:py-2.5"
         >
           <ArrowLeft size={14} /> Back to Devotional Store
         </Link>
@@ -95,13 +95,13 @@ export default async function SingleProductPage({ params }: ProductPageProps) {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           {/* Left Column: Product Visual Showcase (6 cols) */}
           <div className="lg:col-span-6 space-y-4">
-            <div className="relative aspect-[4/3] sm:aspect-square bg-gradient-to-br from-[#F5EBD9] via-[#FAF8F2] to-[#FAF8F2] rounded-3xl border border-[#E7DFD0] overflow-hidden shadow-sm flex items-center justify-center">
+            <div className="relative aspect-[4/3] max-sm:aspect-square sm:aspect-square bg-gradient-to-br from-[#F5EBD9] via-[#FAF8F2] to-[#FAF8F2] rounded-3xl border border-[#E7DFD0] overflow-hidden shadow-sm flex items-center justify-center">
               <Image
                 src={`/images/products/${product.slug}.png`}
                 alt={product.name}
                 width={600}
                 height={600}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover max-lg:object-contain"
                 priority
               />
               {product.price && (

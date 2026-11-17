@@ -56,7 +56,7 @@ export default function HomePage() {
           <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#F5EBD9]/60 to-transparent" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#D8BC83]/12 rounded-full -translate-x-1/2 translate-y-1/2 blur-3xl" />
         </div>
-        <div className="max-w-[1200px] xl:max-w-[1360px] mx-auto px-5 sm:px-6 lg:px-8 hero-pad w-full py-16 sm:py-20 lg:py-28 relative z-10">
+        <div className="max-w-[1200px] xl:max-w-[1360px] mx-auto px-5 sm:px-6 lg:px-8 hero-pad w-full py-12 sm:py-20 lg:py-28 relative z-10">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Hero text */}
             <div className="max-w-xl text-left">
@@ -77,7 +77,7 @@ export default function HomePage() {
 
               <h1
                 id="hero-heading"
-                className="font-cormorant font-semibold text-[2.4rem] sm:text-[3.2rem] lg:text-[4rem] leading-[1.12] text-[#173D32] mb-5 sm:mb-6"
+                className="font-cormorant font-semibold text-[2.4rem] sm:text-[3.2rem] lg:text-[4rem] leading-[1.12] text-[#173D32] mb-4 sm:mb-6 max-lg:text-balance"
               >
                 Nurturing Young Hearts with{" "}
                 <em className="not-italic text-[#B68A42]">Timeless Wisdom.</em>
@@ -256,7 +256,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/learn"
-              className="inline-flex items-center gap-1.5 text-[#173D32] text-[0.85rem] font-semibold hover:text-[#B68A42] transition-colors whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 text-[#173D32] text-[0.85rem] font-semibold hover:text-[#B68A42] transition-colors whitespace-nowrap max-lg:py-2.5"
             >
               View All 5 Programmes <ChevronRight size={16} />
             </Link>
@@ -268,12 +268,12 @@ export default function HomePage() {
           </div>
 
           {/* Responsive Layout: Smooth swipe snap carousel on mobile/iPad, grid on laptop */}
-          <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-none gap-5 pb-4 -mx-5 px-5 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 lg:grid lg:grid-cols-3 lg:gap-6">
+          <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-none scroll-px-5 sm:scroll-px-6 lg:scroll-px-0 gap-5 pb-4 -mx-5 px-5 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 lg:grid lg:grid-cols-3 lg:gap-6">
             {courses.map((course) => {
               return (
                 <article
                   key={course.slug}
-                  className="min-w-[280px] sm:min-w-[340px] lg:min-w-0 snap-start bg-white border border-[#E7DFD0] rounded-2xl overflow-hidden hover:border-[#D8BC83] hover:shadow-md transition-all duration-200 flex flex-col justify-between flex-shrink-0 lg:flex-shrink"
+                  className="w-[82vw] max-w-[320px] sm:w-[340px] sm:max-w-none lg:w-auto lg:min-w-0 snap-start bg-white border border-[#E7DFD0] rounded-2xl overflow-hidden hover:border-[#D8BC83] hover:shadow-md transition-all duration-200 flex flex-col justify-between flex-shrink-0 lg:flex-shrink"
                 >
                   <div className="p-6 flex-1">
                     <div className="flex items-start justify-between mb-4">
@@ -460,7 +460,7 @@ export default function HomePage() {
                 </p>
                 <Link
                   href="/contact?category=community"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#173D32] text-white text-xs font-semibold rounded-lg hover:bg-[#102D25] transition-colors"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 max-sm:py-3.5 bg-[#173D32] text-white text-xs font-semibold rounded-lg hover:bg-[#102D25] transition-colors"
                 >
                   <span>Express Community Interest</span>
                   <ArrowRight size={14} />
@@ -494,7 +494,7 @@ export default function HomePage() {
           </div>
 
           {/* Swipeable on mobile / iPad, grid on desktop */}
-          <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-none gap-4 pb-4 -mx-5 px-5 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 lg:grid lg:grid-cols-4 lg:gap-5">
+          <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-none scroll-px-5 sm:scroll-px-6 lg:scroll-px-0 gap-4 pb-4 -mx-5 px-5 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 lg:grid lg:grid-cols-4 lg:gap-5">
             {[
               {
                 slug: "bhakti-pack-mini",
@@ -527,7 +527,7 @@ export default function HomePage() {
             ].map((item) => (
               <div
                 key={item.slug}
-                className="min-w-[260px] sm:min-w-[280px] lg:min-w-0 snap-start bg-[#1F4D3E] border border-[#D8BC83]/20 rounded-2xl p-6 flex flex-col justify-between hover:border-[#D8BC83]/40 hover:bg-[#234F40] transition-all duration-200 group flex-shrink-0 lg:flex-shrink"
+                className="w-[72vw] max-w-[270px] sm:w-[280px] sm:max-w-none lg:w-auto lg:min-w-0 snap-start bg-[#1F4D3E] border border-[#D8BC83]/20 rounded-2xl p-6 flex flex-col justify-between hover:border-[#D8BC83]/40 hover:bg-[#234F40] transition-all duration-200 group flex-shrink-0 lg:flex-shrink"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">

@@ -59,11 +59,11 @@ export default async function SingleCoursePage({ params }: CoursePageProps) {
       <div className="bg-[#FAF8F2] border-b border-[#E7DFD0] py-3.5">
         <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
           <nav className="flex items-center gap-2 text-xs text-[#77756D]" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-[#173D32] transition-colors">
+            <Link href="/" className="max-lg:inline-block max-lg:py-2 hover:text-[#173D32] transition-colors">
               Home
             </Link>
             <span aria-hidden="true">/</span>
-            <Link href="/learn" className="hover:text-[#173D32] transition-colors">
+            <Link href="/learn" className="max-lg:inline-block max-lg:py-2 hover:text-[#173D32] transition-colors">
               Gurukulam
             </Link>
             <span aria-hidden="true">/</span>
