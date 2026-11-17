@@ -20,6 +20,7 @@ import { products } from "@/data/products";
 import { getWhatsAppUrl } from "@/lib/utils/whatsapp";
 import SpiritualIcon, { type SpiritualIconName } from "@/components/icons/SpiritualIcons";
 import SacredBackground from "@/components/background/SacredBackground";
+import TempleBell from "@/components/background/TempleBell";
 
 export const metadata: Metadata = {
   title: `${siteConfig.name} | ${siteConfig.taglinePrimary}`,
@@ -46,6 +47,7 @@ export default function HomePage() {
         aria-labelledby="hero-heading"
       >
         <SacredBackground variant="home" />
+        <TempleBell />
         {/* Decorative background elements */}
         <div
           className="absolute inset-0 pointer-events-none"
