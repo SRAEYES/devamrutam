@@ -100,8 +100,8 @@ export default function ContactPage() {
                     <strong className="block text-[#173D32] text-sm">Phone &amp; WhatsApp</strong>
                     <span className="text-sm font-bold text-[#173D32] block mt-0.5">+91 7205645789</span>
                     <span className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1 text-[0.75rem] font-semibold text-[#173D32]">
-                      <a href="tel:+917205645789" className="underline hover:text-[#B68A42]">Call</a>
-                      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-[#B68A42]">Chat on WhatsApp</a>
+                      <a href="tel:+917205645789" className="underline hover:text-[#B68A42] max-lg:inline-block max-lg:py-2.5">Call</a>
+                      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-[#B68A42] max-lg:inline-block max-lg:py-2.5">Chat on WhatsApp</a>
                     </span>
                   </div>
                 </div>
@@ -111,7 +111,7 @@ export default function ContactPage() {
                   <Mail size={17} className="text-[#B68A42] mt-0.5 flex-shrink-0" />
                   <div>
                     <strong className="block text-[#173D32]">Official Business Email</strong>
-                    <a href="mailto:devamrutam27@gmail.com" className="hover:underline font-semibold text-[#173D32]">
+                    <a href="mailto:devamrutam27@gmail.com" className="hover:underline font-semibold text-[#173D32] max-lg:inline-block max-lg:py-2">
                       devamrutam27@gmail.com
                     </a>
                   </div>

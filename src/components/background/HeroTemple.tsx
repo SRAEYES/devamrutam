@@ -246,7 +246,7 @@ export default function HeroTemple() {
           visible, bottom-anchored, never under the text column */}
       <div
         ref={gop}
-        className="hero-gopuram absolute right-3 top-3 aspect-[240/392] h-[120px] sm:h-[170px]"
+        className="hero-gopuram absolute right-3 top-3 aspect-[240/392] h-[120px] sm:h-[170px] md:max-lg:h-[240px]"
       >
         <RajaGopuram />
       </div>

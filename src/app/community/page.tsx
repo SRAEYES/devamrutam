@@ -133,7 +133,7 @@ export default function CommunityPage() {
             </div>
             <Link
               href="/community/events"
-              className="text-xs font-semibold text-[#173D32] hover:text-[#B68A42] transition-colors mt-2 sm:mt-0 flex items-center gap-1"
+              className="text-xs font-semibold text-[#173D32] hover:text-[#B68A42] transition-colors mt-2 sm:mt-0 flex items-center gap-1 max-lg:py-2.5"
             >
               View Full Events Directory &rarr;
             </Link>

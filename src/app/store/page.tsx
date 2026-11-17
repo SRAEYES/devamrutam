@@ -91,13 +91,13 @@ export default function StoreCataloguePage() {
                     key={prod.slug}
                     className="group bg-white rounded-2xl border border-[#E7DFD0] overflow-hidden flex flex-col hover:border-[#D8BC83] hover:shadow-md transition-all duration-200"
                   >
-                    <div className="relative aspect-[4/3] bg-[#F5EBD9] overflow-hidden">
+                    <div className="relative aspect-[4/3] max-lg:aspect-square bg-[#F5EBD9] overflow-hidden">
                       <Image
                         src={`/images/products/${prod.slug}.png`}
                         alt={prod.name}
                         width={600}
                         height={450}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-cover max-lg:object-contain group-hover:scale-105 transition-transform duration-300"
                       />
                       {prod.status !== "available-on-enquiry" && (
                         <span className="absolute top-3 left-3 text-[0.65rem] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider bg-white/90 text-[#77756D] border border-[#E7DFD0]">

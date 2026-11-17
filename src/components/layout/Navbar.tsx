@@ -124,14 +124,14 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Direct WhatsApp"
-                className="p-2 text-[#173D32] hover:bg-[#F5EBD9] rounded-lg transition-colors"
+                className="flex h-11 w-11 items-center justify-center text-[#173D32] hover:bg-[#F5EBD9] rounded-lg transition-colors"
               >
                 <MessageCircle size={21} className="text-[#B68A42]" />
               </a>
 
               <button
                 type="button"
-                className="p-2 rounded-lg text-[#173D32] hover:bg-[#F5EBD9] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B68A42]"
+                className="flex h-11 w-11 items-center justify-center rounded-lg text-[#173D32] hover:bg-[#F5EBD9] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B68A42]"
                 onClick={() => setMobileOpen((o) => !o)}
                 aria-expanded={mobileOpen}
                 aria-controls="mobile-menu"
